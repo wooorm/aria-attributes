@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+coverage/
+node_modules/
+aria-attributes.js
+aria-attributes.min.js
