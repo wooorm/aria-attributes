@@ -25,7 +25,7 @@ var list = require('..');
  * Input / output locations.
  */
 
-var w3c = 'https://www.w3.org/TR/aria-in-html/';
+var w3c = 'https://www.w3.org/TR/wai-aria/complete';
 var output = path.join(__dirname, '..', 'index.json');
 
 /*
@@ -46,11 +46,8 @@ https.get(w3c, function (res, err) {
                 bail(err);
             }
 
-            cheerio.load(value)(
-                '#h-aria-states-and-properties-aria--attributes + ' +
-                'ol code'
-            ).each(function () {
-                var data = this.children[0].data;
+            cheerio.load(value)('#index_state_prop dt a').each(function () {
+                var data = this.attribs.href.slice(1);
 
                 if (data && list.indexOf(data) === -1) {
                     list.push(data);
