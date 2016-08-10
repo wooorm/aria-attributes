@@ -10,47 +10,68 @@
     "w3c"
   ],
   "dependencies": {},
-  "files": [
-    "index.js",
-    "index.json"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/aria-attributes.git"
-  },
+  "repository": "https://github.com/wooorm/aria-attributes",
   "bugs": "https://github.com/wooorm/aria-attributes/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
+  "engines": {
+    "node": ">=0.11.0"
+  },
+  "files": [
+    "index.js",
+    "index.json"
+  ],
   "devDependencies": {
-    "bail": "^1.0.0",
+    "bail": "^1.0.1",
     "browserify": "^13.0.0",
     "cheerio": "^0.20.0",
-    "eslint": "^2.0.0",
-    "esmangle": "^1.0.1",
-    "istanbul": "^0.4.0",
-    "jscs": "^3.0.0",
-    "jscs-jsdoc": "^2.0.0",
-    "remark": "^4.0.0",
-    "remark-comment-config": "^3.0.0",
-    "remark-github": "^4.0.1",
-    "remark-lint": "^3.0.0",
-    "remark-usage": "^3.0.0",
-    "remark-validate-links": "^3.0.0",
-    "tape": "^4.4.0"
+    "esmangle": "^1.0.0",
+    "nyc": "^7.1.0",
+    "remark-cli": "^1.0.0",
+    "remark-comment-config": "^4.0.0",
+    "remark-github": "^5.0.0",
+    "remark-lint": "^4.0.0",
+    "remark-validate-links": "^4.0.0",
+    "tape": "^4.4.0",
+    "xo": "^0.16.0"
   },
   "scripts": {
     "build-md": "remark . --quiet --frail",
-    "build-crawl": "node script/build.js",
-    "build-bundle": "browserify index.js --bare -s ariaAttributes > aria-attributes.js",
+    "build-generate": "node build.js",
+    "build-bundle": "browserify index.js -s ariaAttributes > aria-attributes.js",
     "build-mangle": "esmangle aria-attributes.js > aria-attributes.min.js",
-    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
-    "lint-api": "eslint .",
-    "lint-style": "jscs --reporter inline .",
-    "lint": "npm run lint-api && npm run lint-style",
-    "test-api": "node test.js",
-    "test-coverage": "istanbul cover test.js",
+    "build": "npm run build-generate && npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint": "xo",
+    "test-api": "node test",
+    "test-coverage": "nyc --reporter lcov tape test.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
+  },
+  "xo": {
+    "space": true,
+    "rules": {},
+    "ignores": [
+      "aria-attributes.js",
+      "aria-attributes.min.js"
+    ]
+  },
+  "remarkConfig": {
+    "output": true,
+    "plugins": {
+      "comment-config": null,
+      "lint": null,
+      "github": null,
+      "validate-links": null
+    },
+    "settings": {
+      "bullet": "*"
+    }
   }
 }

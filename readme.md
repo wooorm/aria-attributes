@@ -1,4 +1,4 @@
-# aria-attributes [![Build Status][build-badge]][build-page] [![Coverage Status][coverage-badge]][coverage-page]
+# aria-attributes [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
 List of attributes defined by [ARIA][spec].
 
@@ -9,11 +9,6 @@ List of attributes defined by [ARIA][spec].
 ```bash
 npm install aria-attributes
 ```
-
-**aria-attributes** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
-
-## Usage
 
 Dependencies:
 
@@ -73,19 +68,17 @@ Yields:
 
 [MIT][license] © [Titus Wormer][author]
 
-<!-- Definition -->
+<!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
+[travis-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
 
-[build-page]: https://travis-ci.org/wooorm/aria-attributes
+[travis]: https://travis-ci.org/wooorm/aria-attributes
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/aria-attributes.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/aria-attributes.svg
 
-[coverage-page]: https://codecov.io/github/wooorm/aria-attributes?branch=master
+[codecov]: https://codecov.io/github/wooorm/aria-attributes
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/aria-attributes/releases
 
 [license]: LICENSE
 

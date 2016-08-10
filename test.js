@@ -8,32 +8,21 @@
 
 'use strict';
 
-/* eslint-env node */
-
-/*
- * Module dependencies.
- */
-
+/* Module dependencies. */
 var test = require('tape');
-var ariaAttributes = require('./index.js');
+var ariaAttributes = require('./');
 
-/*
- * Tests.
- */
-
+/* Tests. */
 test('ariaAttributes', function (t) {
-    t.ok(
-        Array.isArray(ariaAttributes),
-        'should be an `array`'
+  t.ok(Array.isArray(ariaAttributes), 'should be an `array`');
+
+  ariaAttributes.forEach(function (tagName) {
+    t.equal(
+      typeof tagName,
+      'string',
+      '`' + tagName + '` should be a string'
     );
+  });
 
-    ariaAttributes.forEach(function (tagName) {
-        t.equal(
-            typeof tagName,
-            'string',
-            '`' + tagName + '` should be a string'
-        );
-    });
-
-    t.end();
+  t.end();
 });
