@@ -1,14 +1,6 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module aria-attributes
- * @fileoverview Test suite for `aria-attributes`.
- */
-
 'use strict';
 
-/* Module dependencies. */
+/* Dependencies. */
 var assert = require('assert');
 var test = require('tape');
 var ariaAttributes = require('./');

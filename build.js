@@ -1,11 +1,3 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module aria-attributes:script:build
- * @fileoverview Crawl the table of attributes.
- */
-
 'use strict';
 
 /* Dependencies. */
