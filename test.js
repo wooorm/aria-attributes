@@ -9,6 +9,7 @@
 'use strict';
 
 /* Module dependencies. */
+var assert = require('assert');
 var test = require('tape');
 var ariaAttributes = require('./');
 
@@ -16,13 +17,11 @@ var ariaAttributes = require('./');
 test('ariaAttributes', function (t) {
   t.ok(Array.isArray(ariaAttributes), 'should be an `array`');
 
-  ariaAttributes.forEach(function (tagName) {
-    t.equal(
-      typeof tagName,
-      'string',
-      '`' + tagName + '` should be a string'
-    );
-  });
+  t.doesNotThrow(function () {
+    ariaAttributes.forEach(function (tagName) {
+      assert(typeof tagName, 'string', '`' + tagName + '` should be a string');
+    });
+  }, 'should be an array of strings');
 
   t.end();
 });
