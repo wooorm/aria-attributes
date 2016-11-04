@@ -9,20 +9,17 @@
     "attribute",
     "w3c"
   ],
-  "dependencies": {},
   "repository": "https://github.com/wooorm/aria-attributes",
   "bugs": "https://github.com/wooorm/aria-attributes/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
-  "engines": {
-    "node": ">=0.11.0"
-  },
+  "main": "index.js",
   "files": [
-    "index.js",
     "index.json"
   ],
+  "dependencies": {},
   "devDependencies": {
     "bail": "^1.0.1",
     "browserify": "^13.0.0",
@@ -36,8 +33,8 @@
   },
   "scripts": {
     "build-md": "remark . --quiet --frail",
-    "build-generate": "node build.js",
-    "build-bundle": "browserify index.js -s ariaAttributes > aria-attributes.js",
+    "build-generate": "node build",
+    "build-bundle": "browserify index.json -s ariaAttributes > aria-attributes.js",
     "build-mangle": "esmangle aria-attributes.js > aria-attributes.min.js",
     "build": "npm run build-generate && npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
