@@ -1,4 +1,4 @@
-# aria-attributes [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# aria-attributes [![Build Status][travis-badge]][travis]
 
 List of attributes defined by [ARIA][spec].
 
@@ -73,10 +73,6 @@ Yields:
 [travis-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
 
 [travis]: https://travis-ci.org/wooorm/aria-attributes
-
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/aria-attributes.svg
-
-[codecov]: https://codecov.io/github/wooorm/aria-attributes
 
 [npm]: https://docs.npmjs.com/cli/install
 
