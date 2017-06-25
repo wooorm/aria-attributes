@@ -1,6 +1,5 @@
 'use strict';
 
-/* Dependencies. */
 var fs = require('fs');
 var path = require('path');
 var https = require('https');
@@ -8,12 +7,7 @@ var cheerio = require('cheerio');
 var bail = require('bail');
 var list = require('./');
 
-/* Input / output locations. */
-var w3c = 'https://www.w3.org/TR/wai-aria/complete';
-var output = path.join(__dirname, 'index.json');
-
-/* Crawl W3C. */
-https.get(w3c, function (res, err) {
+https.get('https://www.w3.org/TR/wai-aria/complete', function (res, err) {
   var value = '';
 
   bail(err);
@@ -33,7 +27,7 @@ https.get(w3c, function (res, err) {
       });
 
       fs.writeFile(
-        output,
+        path.join(__dirname, 'index.json'),
         JSON.stringify(list.sort(), 0, 2) + '\n',
         bail
       );
