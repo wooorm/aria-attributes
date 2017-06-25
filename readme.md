@@ -10,10 +10,11 @@ List of attributes defined by [ARIA][spec].
 npm install aria-attributes
 ```
 
-Dependencies:
+## Usage
 
 ```javascript
 var ariaAttributes = require('aria-attributes');
+console.log(ariaAttributes);
 ```
 
 Yields:
