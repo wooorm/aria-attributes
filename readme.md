@@ -13,8 +13,9 @@ npm install aria-attributes
 ## Usage
 
 ```javascript
-var ariaAttributes = require('aria-attributes');
-console.log(ariaAttributes);
+var ariaAttributes = require('aria-attributes')
+
+console.log(ariaAttributes)
 ```
 
 Yields:
