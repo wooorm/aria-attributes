@@ -9,7 +9,7 @@
     "attribute",
     "w3c"
   ],
-  "repository": "https://github.com/wooorm/aria-attributes",
+  "repository": "wooorm/aria-attributes",
   "bugs": "https://github.com/wooorm/aria-attributes/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
