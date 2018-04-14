@@ -3,6 +3,7 @@ node_js:
 - lts/boron
 - node
 deploy:
+  skip_cleanup: true
   provider: releases
   api_key:
     secure: mEUoY+Ferl7l/Cs87nCXBdMrhdiNH0najQ0G9iAw7FJuJTNTMrFQBb+nJqqbEmDGA76SPDW5SVu4QNIsQ9TxjbOcUsbLiHNmG3W7lKvCqXEb72mZy9G00AKOixBpNz/JABMPXd1XxaQoTcqLxw95E4t6iQznkBySjlDGCq545BFtUBcNWgQabVdaZ7z8XWzDo+7os1JUkGLPXGHWVJRkj/ScbeV/yGNDLoYOUNloJ+xPVP2aYwYplPldRMX2r23ffonGMDOAeZ9kriMuzLuxc59rDYtMvDao3poXIdWcGguhCga43ueKfLhes5a5U6fFtjXTgPGx2HzXN3BzkGpdtirP0AZSReIMcytk/V1jEQd4pyU8NdFctUmdSRgTkVnbOcGfjfhpzul4VtaRig+Gg13UOiu9gy7cxZwP+8BWLYhsWOYetccyEJkt0hp6Q7Izg8AaSt5swdaztZQwFwOO38tm2qgc19Q3dgWJawvyUYYrQwQOs4Dvwkl5EMWYZcrYrdyvHfUSrSTw5QHMpBJkz82NSLAJ3EqU5QxTjLA5UIfHDM7vHrbg9LUKbmY+hWT7ZG7Peh49EZSgbCrslTFrHzNnmm5PYuT/C/ut4QeUOSwVx4KFOr4BeHX6mgTPD2WPzWOa3jDLshKEXfxOXJUoCtqf+ifxw0KUHQI5YHElsbM=
@@ -11,4 +12,3 @@ deploy:
     - "aria-attributes.min.js"
   on:
     tags: true
-    skip_cleanup: true
