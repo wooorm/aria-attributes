@@ -3,3 +3,4 @@
 node_modules/
 aria-attributes.js
 aria-attributes.min.js
+yarn.lock
