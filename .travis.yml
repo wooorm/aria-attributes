@@ -3,21 +3,12 @@ node_js:
 - lts/boron
 - node
 deploy:
-  - provider: npm
-    email: tituswormer@gmail.com
-    api_key:
-      secure: C9ZTUhPW0k+oiOKGzgYPUvjxrvqN8CpIvUwX5SUZ+cm0wxQFH8YoRPkvs/5arfPDcepzJvBlrpzeKUPOP+hixeypwXb51ipndAGCeyhus1lmQp9+YZbmB0O4bIvxuNXtiT+A9DdYPTWtMVEFky121+OrtyRv+0+IfxfcFlkoGMXJCp4nizbKeYHeb/gr5AtHrhuS77LO9sgLjQIGnrdYsRguzI6iqYUxZHQ2kpk4xPmxKRK306vHz1mRsMPoy2vZthH+4yjCeitxs3LuQtZx80ndDEXoXnSL+T0+3k58ocxLxNOcBtby1e6iKKzMz7PV/XN4XB7RepYIl5ZvKi5I5lMz0NZuHcMnq5xv0Z2PrENqq/8U/c40HqvPQ07KRfFW5RwJx0ojq66JcKKl7UtaocAoTYu6PWDIwr/hPkuEu3slS2dkziuFrgY8xLqSYBfj/6IBESK2G4pLIsJp3WZD4W8y2d7uwXcwY0/UzogZs1eGrmVC9IEa3FEM7ytjJ5IlyPn5IC2vgGpoi6SI2rkKQy0QPspF60meAEG8tuaKhnbppNjMtjtDDjs5TaC8nhbZNG4SI2829ZeCHRLpCUp6xhTl7Ex0ZPvR3sS80cOaacPaXQrknpyfPPhl/fLcmXImbbWa+ksdMVE1hazE8O4EHnbzvi8ZqB1vAkP3bOSNZLM=
-    on:
-      tags: true
-      skip_cleanup: true
-      node: node
-  - provider: releases
-    api_key:
-      secure: mEUoY+Ferl7l/Cs87nCXBdMrhdiNH0najQ0G9iAw7FJuJTNTMrFQBb+nJqqbEmDGA76SPDW5SVu4QNIsQ9TxjbOcUsbLiHNmG3W7lKvCqXEb72mZy9G00AKOixBpNz/JABMPXd1XxaQoTcqLxw95E4t6iQznkBySjlDGCq545BFtUBcNWgQabVdaZ7z8XWzDo+7os1JUkGLPXGHWVJRkj/ScbeV/yGNDLoYOUNloJ+xPVP2aYwYplPldRMX2r23ffonGMDOAeZ9kriMuzLuxc59rDYtMvDao3poXIdWcGguhCga43ueKfLhes5a5U6fFtjXTgPGx2HzXN3BzkGpdtirP0AZSReIMcytk/V1jEQd4pyU8NdFctUmdSRgTkVnbOcGfjfhpzul4VtaRig+Gg13UOiu9gy7cxZwP+8BWLYhsWOYetccyEJkt0hp6Q7Izg8AaSt5swdaztZQwFwOO38tm2qgc19Q3dgWJawvyUYYrQwQOs4Dvwkl5EMWYZcrYrdyvHfUSrSTw5QHMpBJkz82NSLAJ3EqU5QxTjLA5UIfHDM7vHrbg9LUKbmY+hWT7ZG7Peh49EZSgbCrslTFrHzNnmm5PYuT/C/ut4QeUOSwVx4KFOr4BeHX6mgTPD2WPzWOa3jDLshKEXfxOXJUoCtqf+ifxw0KUHQI5YHElsbM=
-    file:
-      - "aria-attributes.js"
-      - "aria-attributes.min.js"
-    on:
-      tags: true
-      skip_cleanup: true
-      node: node
+  provider: releases
+  api_key:
+    secure: mEUoY+Ferl7l/Cs87nCXBdMrhdiNH0najQ0G9iAw7FJuJTNTMrFQBb+nJqqbEmDGA76SPDW5SVu4QNIsQ9TxjbOcUsbLiHNmG3W7lKvCqXEb72mZy9G00AKOixBpNz/JABMPXd1XxaQoTcqLxw95E4t6iQznkBySjlDGCq545BFtUBcNWgQabVdaZ7z8XWzDo+7os1JUkGLPXGHWVJRkj/ScbeV/yGNDLoYOUNloJ+xPVP2aYwYplPldRMX2r23ffonGMDOAeZ9kriMuzLuxc59rDYtMvDao3poXIdWcGguhCga43ueKfLhes5a5U6fFtjXTgPGx2HzXN3BzkGpdtirP0AZSReIMcytk/V1jEQd4pyU8NdFctUmdSRgTkVnbOcGfjfhpzul4VtaRig+Gg13UOiu9gy7cxZwP+8BWLYhsWOYetccyEJkt0hp6Q7Izg8AaSt5swdaztZQwFwOO38tm2qgc19Q3dgWJawvyUYYrQwQOs4Dvwkl5EMWYZcrYrdyvHfUSrSTw5QHMpBJkz82NSLAJ3EqU5QxTjLA5UIfHDM7vHrbg9LUKbmY+hWT7ZG7Peh49EZSgbCrslTFrHzNnmm5PYuT/C/ut4QeUOSwVx4KFOr4BeHX6mgTPD2WPzWOa3jDLshKEXfxOXJUoCtqf+ifxw0KUHQI5YHElsbM=
+  file:
+    - "aria-attributes.js"
+    - "aria-attributes.min.js"
+  on:
+    tags: true
+    skip_cleanup: true
