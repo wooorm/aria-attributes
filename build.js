@@ -8,7 +8,7 @@ var concat = require('concat-stream');
 var unified = require('unified');
 var parse = require('rehype-parse');
 var selectAll = require('hast-util-select').selectAll;
-var list = require('./');
+var list = require('.');
 
 https.get('https://www.w3.org/TR/wai-aria/complete', function (res) {
   res.pipe(concat(onconcat)).on('error', bail);
