@@ -10,7 +10,7 @@ var parse = require('rehype-parse')
 var selectAll = require('hast-util-select').selectAll
 var list = require('.')
 
-https.get('https://www.w3.org/TR/wai-aria/complete', function(res) {
+https.get('https://www.w3.org/TR/wai-aria/', function(res) {
   res.pipe(concat(onconcat)).on('error', bail)
 
   function onconcat(buf) {
@@ -18,7 +18,13 @@ https.get('https://www.w3.org/TR/wai-aria/complete', function(res) {
       .use(parse)
       .parse(buf)
 
-    selectAll('#index_state_prop dt a', tree).forEach(add)
+    var entries = selectAll('#index_state_prop dt a', tree)
+
+    if (entries.length === 0) {
+      bail(new Error('Couldn’t find entries'))
+    }
+
+    entries.forEach(add)
 
     fs.writeFile(
       path.join(__dirname, 'index.json'),
