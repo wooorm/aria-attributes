@@ -57,4 +57,4 @@ Yields:
 
 [author]: http://wooorm.com
 
-[spec]: https://www.w3.org/TR/aria-in-html/
+[spec]: https://www.w3.org/TR/wai-aria/
