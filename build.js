@@ -1,7 +1,6 @@
 'use strict'
 
 var fs = require('fs')
-var path = require('path')
 var https = require('https')
 var bail = require('bail')
 var concat = require('concat-stream')
@@ -10,7 +9,7 @@ var parse = require('rehype-parse')
 var selectAll = require('hast-util-select').selectAll
 var list = require('.')
 
-https.get('https://www.w3.org/TR/wai-aria/', function(res) {
+https.get('https://www.w3.org/TR/wai-aria-1.2/', function(res) {
   res.pipe(concat(onconcat)).on('error', bail)
 
   function onconcat(buf) {
@@ -26,11 +25,7 @@ https.get('https://www.w3.org/TR/wai-aria/', function(res) {
 
     entries.forEach(add)
 
-    fs.writeFile(
-      path.join(__dirname, 'index.json'),
-      JSON.stringify(list.sort(), 0, 2) + '\n',
-      bail
-    )
+    fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
 
     function add(node) {
       var data = node.properties.href.slice(1)
