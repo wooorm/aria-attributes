@@ -55,6 +55,6 @@ Yields:
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [spec]: https://www.w3.org/TR/wai-aria/
