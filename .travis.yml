@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 deploy:
   skip_cleanup: true
   provider: releases
   api_key:
-    secure: mEUoY+Ferl7l/Cs87nCXBdMrhdiNH0najQ0G9iAw7FJuJTNTMrFQBb+nJqqbEmDGA76SPDW5SVu4QNIsQ9TxjbOcUsbLiHNmG3W7lKvCqXEb72mZy9G00AKOixBpNz/JABMPXd1XxaQoTcqLxw95E4t6iQznkBySjlDGCq545BFtUBcNWgQabVdaZ7z8XWzDo+7os1JUkGLPXGHWVJRkj/ScbeV/yGNDLoYOUNloJ+xPVP2aYwYplPldRMX2r23ffonGMDOAeZ9kriMuzLuxc59rDYtMvDao3poXIdWcGguhCga43ueKfLhes5a5U6fFtjXTgPGx2HzXN3BzkGpdtirP0AZSReIMcytk/V1jEQd4pyU8NdFctUmdSRgTkVnbOcGfjfhpzul4VtaRig+Gg13UOiu9gy7cxZwP+8BWLYhsWOYetccyEJkt0hp6Q7Izg8AaSt5swdaztZQwFwOO38tm2qgc19Q3dgWJawvyUYYrQwQOs4Dvwkl5EMWYZcrYrdyvHfUSrSTw5QHMpBJkz82NSLAJ3EqU5QxTjLA5UIfHDM7vHrbg9LUKbmY+hWT7ZG7Peh49EZSgbCrslTFrHzNnmm5PYuT/C/ut4QeUOSwVx4KFOr4BeHX6mgTPD2WPzWOa3jDLshKEXfxOXJUoCtqf+ifxw0KUHQI5YHElsbM=
+    secure: IAS1yMQlDgJCNZHdbOPj4eXFU1A/1ZYDD/1+tX6DAaWbi2NPfOjKcJ73rlILKglxqRNW1z7GsIlNN1+eXRfyKCVI1NZkxBbR6oIzlVQwl9DCk3MLVsqO3LqJV+7aPyiKdcZNAKg+gw3WzveZZiaUhb10LIs5ruIop/gFS4Tm11yx4Dhe4szwfKuLwv0yIAcu8+tA2w80XL24u/2RvWrNDCqce6zhLFihFCxOU0buE6FaLZiRL8pcMSK1f55PaXNHsQez54vfe21BYiMq/I9fGsWSOWYjcp6IBDgoGsiBAl7PD+opZECI0dO8Ux6AwIThdUVUk8EMVDfK/lEayEVyiyl79cfqXAerMk7HPlQ18NIJZhNoeVEHbDs0sgIBZAl/AQkUpktcbw8pYCL4PDYY1ZxbOYZ1Lt0cDVkrZFUBI9zEI/v5nyp0OJzsknbxcdsWUWGySxkDlb/Cpi4w4Me/XCHQVRlYUgDcdiNst+h7Rax9UuyzTFHnAerOvEaCgUevFOoKoZWyU+WuFdiNwk8CroCAJdGRl4bgQGZHxPFJUsWDAPdHIBO56k0L3fZ6t/uiwkAYNxI+/vwuzDhf95xHraZEx/GYb9Y5S3bzmHRqpUdJiggjPu8iZ3yQXaJ6wf/wAhBs8lyIwbQbPS3Th0qQzN6HnbEOd6ERasjU/AcgdFI=
   file:
-    - "aria-attributes.js"
-    - "aria-attributes.min.js"
+    - 'aria-attributes.js'
+    - 'aria-attributes.min.js'
   on:
     tags: true
