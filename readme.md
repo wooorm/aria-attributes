@@ -1,4 +1,8 @@
-# aria-attributes [![Build Status][travis-badge]][travis]
+# aria-attributes
+
+[![Build][build-badge]][build]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 List of attributes defined by [ARIA][spec].
 
@@ -47,9 +51,17 @@ Yields:
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
+[build-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
 
-[travis]: https://travis-ci.org/wooorm/aria-attributes
+[build]: https://travis-ci.org/wooorm/aria-attributes
+
+[downloads-badge]: https://img.shields.io/npm/dm/aria-attributes.svg
+
+[downloads]: https://www.npmjs.com/package/aria-attributes
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/aria-attributes.svg
+
+[size]: https://bundlephobia.com/result?p=aria-attributes
 
 [npm]: https://docs.npmjs.com/cli/install
 
