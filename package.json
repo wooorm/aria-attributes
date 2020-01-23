@@ -11,6 +11,10 @@
   ],
   "repository": "wooorm/aria-attributes",
   "bugs": "https://github.com/wooorm/aria-attributes/issues",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/wooorm"
+  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
