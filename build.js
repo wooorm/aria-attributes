@@ -30,7 +30,7 @@ https.get('https://www.w3.org/TR/wai-aria-1.2/', function(res) {
     function add(node) {
       var data = node.properties.href.slice(1)
 
-      if (data && list.indexOf(data) === -1) {
+      if (data && !list.includes(data)) {
         list.push(data)
       }
     }
