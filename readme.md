@@ -6,17 +6,17 @@
 
 List of attributes defined by [ARIA][spec].
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install aria-attributes
 ```
 
-## Usage
+## Use
 
-```javascript
+```js
 var ariaAttributes = require('aria-attributes')
 
 console.log(ariaAttributes)
@@ -30,7 +30,7 @@ Yields:
   'aria-autocomplete',
   'aria-busy',
   'aria-checked',
-  // ...
+  // …
   'aria-valuemax',
   'aria-valuemin',
   'aria-valuenow',
@@ -42,8 +42,7 @@ Yields:
 
 ### `ariaAttributes`
 
-`Array.<string>` — List of lower-case dash-cased attributes (including
-`role`).
+`Array.<string>` — List of lowercase dash-cased attributes (including `role`).
 
 ## License
 
