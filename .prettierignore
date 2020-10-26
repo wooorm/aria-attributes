@@ -1,2 +1,4 @@
 aria-attributes.js
 aria-attributes.min.js
+*.json
+*.md

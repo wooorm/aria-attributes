@@ -9,30 +9,30 @@ var parse = require('rehype-parse')
 var selectAll = require('hast-util-select').selectAll
 var list = require('.')
 
-https.get('https://www.w3.org/TR/wai-aria-1.2/', function(res) {
-  res.pipe(concat(onconcat)).on('error', bail)
+https.get('https://www.w3.org/TR/wai-aria-1.2/', onresponse)
 
-  function onconcat(buf) {
-    var tree = unified()
-      .use(parse)
-      .parse(buf)
+function onresponse(response) {
+  response.pipe(concat(onconcat)).on('error', bail)
+}
 
-    var entries = selectAll('#index_state_prop dt a', tree)
+function onconcat(buf) {
+  var tree = unified().use(parse).parse(buf)
 
-    if (entries.length === 0) {
-      bail(new Error('Couldn’t find entries'))
-    }
+  var entries = selectAll('#index_state_prop dt a', tree)
 
-    entries.forEach(add)
+  if (entries.length === 0) {
+    bail(new Error('Couldn’t find entries'))
+  }
 
-    fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
+  entries.forEach(add)
 
-    function add(node) {
-      var data = node.properties.href.slice(1)
+  fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
 
-      if (data && !list.includes(data)) {
-        list.push(data)
-      }
+  function add(node) {
+    var data = node.properties.href.slice(1)
+
+    if (data && !list.includes(data)) {
+      list.push(data)
     }
   }
-})
+}
