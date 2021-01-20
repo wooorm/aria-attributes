@@ -50,9 +50,9 @@ Yields:
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/aria-attributes.svg
+[build-badge]: https://github.com/wooorm/aria-attributes/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/aria-attributes
+[build]: https://github.com/wooorm/aria-attributes/actions
 
 [downloads-badge]: https://img.shields.io/npm/dm/aria-attributes.svg
 
