@@ -36,13 +36,13 @@
     "tape": "^5.0.0",
     "tinyify": "^3.0.0",
     "unified": "^9.0.0",
-    "xo": "^0.34.0"
+    "xo": "^0.37.0"
   },
   "scripts": {
     "crawl": "node build",
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
-    "build-bundle": "browserify index.json -s ariaAttributes > aria-attributes.js",
-    "build-mangle": "browserify index.json -s ariaAttributes -p tinyify > aria-attributes.min.js",
+    "build-bundle": "browserify index.json -s ariaAttributes -o aria-attributes.js",
+    "build-mangle": "browserify index.json -s ariaAttributes -p tinyify -o aria-attributes.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test": "npm run format && npm run build && npm run test-api"
@@ -62,7 +62,7 @@
       "aria-attributes.js"
     ],
     "rules": {
-      "unicorn/no-fn-reference-in-iterator": "off"
+      "unicorn/no-array-callback-reference": "off"
     }
   },
   "remarkConfig": {
