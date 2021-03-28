@@ -7,16 +7,28 @@ import parse from 'rehype-parse'
 import $ from 'hast-util-select'
 import {ariaAttributes} from './index.js'
 
+/**
+ * @typedef {import('hast').Element} Element
+ */
+
 https.get('https://www.w3.org/TR/wai-aria-1.2/', onresponse)
 
+/**
+ * @param {import('http').IncomingMessage} response
+ */
 function onresponse(response) {
   response.pipe(concat(onconcat)).on('error', bail)
 }
 
+/**
+ * @param {Buffer} buf
+ */
 function onconcat(buf) {
   var tree = unified().use(parse).parse(buf)
+  /** @type {Element[]} */
   var entries = $.selectAll('#index_state_prop dt a', tree)
   var index = -1
+  /** @type {string} */
   var data
 
   if (entries.length === 0) {
@@ -24,7 +36,7 @@ function onconcat(buf) {
   }
 
   while (++index < entries.length) {
-    data = entries[index].properties.href.slice(1)
+    data = String(entries[index].properties.href).slice(1)
 
     if (data && !ariaAttributes.includes(data)) {
       ariaAttributes.push(data)
