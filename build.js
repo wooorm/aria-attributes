@@ -17,22 +17,21 @@ function onresponse(response) {
 
 function onconcat(buf) {
   var tree = unified().use(parse).parse(buf)
-
   var entries = selectAll('#index_state_prop dt a', tree)
+  var index = -1
+  var data
 
   if (entries.length === 0) {
     bail(new Error('Couldn’t find entries'))
   }
 
-  entries.forEach(add)
-
-  fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
-
-  function add(node) {
-    var data = node.properties.href.slice(1)
+  while (++index < entries.length) {
+    data = entries[index].properties.href.slice(1)
 
     if (data && !list.includes(data)) {
       list.push(data)
     }
   }
+
+  fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
 }
