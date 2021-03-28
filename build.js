@@ -1,13 +1,11 @@
-'use strict'
-
-var fs = require('fs')
-var https = require('https')
-var bail = require('bail')
-var concat = require('concat-stream')
-var unified = require('unified')
-var parse = require('rehype-parse')
-var selectAll = require('hast-util-select').selectAll
-var list = require('.')
+import fs from 'fs'
+import https from 'https'
+import {bail} from 'bail'
+import concat from 'concat-stream'
+import unified from 'unified'
+import parse from 'rehype-parse'
+import $ from 'hast-util-select'
+import {ariaAttributes} from './index.js'
 
 https.get('https://www.w3.org/TR/wai-aria-1.2/', onresponse)
 
@@ -17,7 +15,7 @@ function onresponse(response) {
 
 function onconcat(buf) {
   var tree = unified().use(parse).parse(buf)
-  var entries = selectAll('#index_state_prop dt a', tree)
+  var entries = $.selectAll('#index_state_prop dt a', tree)
   var index = -1
   var data
 
@@ -28,10 +26,16 @@ function onconcat(buf) {
   while (++index < entries.length) {
     data = entries[index].properties.href.slice(1)
 
-    if (data && !list.includes(data)) {
-      list.push(data)
+    if (data && !ariaAttributes.includes(data)) {
+      ariaAttributes.push(data)
     }
   }
 
-  fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
+  fs.writeFile(
+    'index.js',
+    'export var ariaAttributes = ' +
+      JSON.stringify(ariaAttributes.sort(), null, 2) +
+      '\n',
+    bail
+  )
 }
