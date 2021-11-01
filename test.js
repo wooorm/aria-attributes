@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import test from 'tape'
 import {ariaAttributes} from './index.js'
 
@@ -6,7 +6,7 @@ test('ariaAttributes', function (t) {
   t.ok(Array.isArray(ariaAttributes), 'should be an `array`')
 
   t.doesNotThrow(function () {
-    var index = -1
+    let index = -1
 
     while (++index < ariaAttributes.length) {
       assert.strictEqual(

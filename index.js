@@ -1,4 +1,4 @@
-export var ariaAttributes = [
+export const ariaAttributes = [
   'aria-activedescendant',
   'aria-atomic',
   'aria-autocomplete',

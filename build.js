@@ -1,10 +1,10 @@
-import fs from 'fs'
-import https from 'https'
+import fs from 'node:fs'
+import https from 'node:https'
 import {bail} from 'bail'
 import concat from 'concat-stream'
-import unified from 'unified'
+import {unified} from 'unified'
 import parse from 'rehype-parse'
-import $ from 'hast-util-select'
+import {selectAll} from 'hast-util-select'
 import {ariaAttributes} from './index.js'
 
 /**
@@ -24,12 +24,12 @@ function onresponse(response) {
  * @param {Buffer} buf
  */
 function onconcat(buf) {
-  var tree = unified().use(parse).parse(buf)
+  const tree = unified().use(parse).parse(buf)
   /** @type {Element[]} */
-  var entries = $.selectAll('#index_state_prop dt a', tree)
-  var index = -1
+  const entries = selectAll('#index_state_prop dt a', tree)
+  let index = -1
   /** @type {string} */
-  var data
+  let data
 
   if (entries.length === 0) {
     bail(new Error('Couldn’t find entries'))
@@ -45,7 +45,7 @@ function onconcat(buf) {
 
   fs.writeFile(
     'index.js',
-    'export var ariaAttributes = ' +
+    'export const ariaAttributes = ' +
       JSON.stringify(ariaAttributes.sort(), null, 2) +
       '\n',
     bail
