@@ -1,3 +1,8 @@
+/**
+ * List of ARIA attributes.
+ *
+ * @type {Array<string>}
+ */
 export const ariaAttributes = [
   'aria-activedescendant',
   'aria-atomic',

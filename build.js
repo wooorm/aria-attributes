@@ -20,7 +20,8 @@ https.get('https://www.w3.org/TR/wai-aria-1.2/', (response) => {
         }
 
         while (++index < entries.length) {
-          const data = String(entries[index].properties.href).slice(1)
+          const node = entries[index]
+          const data = String((node.properties || {}).href).slice(1)
 
           if (data && !ariaAttributes.includes(data)) {
             ariaAttributes.push(data)
@@ -29,9 +30,16 @@ https.get('https://www.w3.org/TR/wai-aria-1.2/', (response) => {
 
         fs.writeFile(
           'index.js',
-          'export const ariaAttributes = ' +
-            JSON.stringify(ariaAttributes.sort(), null, 2) +
-            '\n',
+          [
+            '/**',
+            ' * List of ARIA attributes.',
+            ' *',
+            ' * @type {Array<string>}',
+            ' */',
+            'export const ariaAttributes = ' +
+              JSON.stringify(ariaAttributes.sort(), null, 2),
+            ''
+          ].join('\n'),
           bail
         )
       })
