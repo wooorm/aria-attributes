@@ -3,7 +3,7 @@ import test from 'tape'
 import {ariaAttributes} from './index.js'
 
 test('ariaAttributes', function (t) {
-  t.ok(Array.isArray(ariaAttributes), 'should be an `array`')
+  t.ok(Array.isArray(ariaAttributes), 'should be an array')
 
   t.doesNotThrow(function () {
     let index = -1
