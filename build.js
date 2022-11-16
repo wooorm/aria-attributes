@@ -1,48 +1,39 @@
-import fs from 'node:fs'
-import https from 'node:https'
-import {bail} from 'bail'
-import concatStream from 'concat-stream'
-import {unified} from 'unified'
-import rehypeParse from 'rehype-parse'
+import fs from 'node:fs/promises'
+import fetch from 'node-fetch'
+import {fromHtml} from 'hast-util-from-html'
 import {selectAll} from 'hast-util-select'
 import {ariaAttributes} from './index.js'
 
-https.get('https://www.w3.org/TR/wai-aria-1.2/', (response) => {
-  response
-    .pipe(
-      concatStream((buf) => {
-        const tree = unified().use(rehypeParse).parse(buf)
-        const entries = selectAll('#index_state_prop dt a', tree)
-        let index = -1
+const response = await fetch('https://www.w3.org/TR/wai-aria-1.2/')
+const text = await response.text()
+const tree = fromHtml(text)
+const entries = selectAll('#index_state_prop dt a', tree)
+let index = -1
 
-        if (entries.length === 0) {
-          bail(new Error('Couldn’t find entries'))
-        }
+if (entries.length === 0) {
+  throw new Error('Couldn’t find entries')
+}
 
-        while (++index < entries.length) {
-          const node = entries[index]
-          const data = String((node.properties || {}).href).slice(1)
+while (++index < entries.length) {
+  const node = entries[index]
+  const data = String((node.properties || {}).href).slice(1)
 
-          if (data && !ariaAttributes.includes(data)) {
-            ariaAttributes.push(data)
-          }
-        }
+  if (data) {
+    ariaAttributes.push(data)
+  }
+}
 
-        fs.writeFile(
-          'index.js',
-          [
-            '/**',
-            ' * List of ARIA attributes.',
-            ' *',
-            ' * @type {Array<string>}',
-            ' */',
-            'export const ariaAttributes = ' +
-              JSON.stringify(ariaAttributes.sort(), null, 2),
-            ''
-          ].join('\n'),
-          bail
-        )
-      })
-    )
-    .on('error', bail)
-})
+const list = [...new Set(ariaAttributes)].sort()
+
+await fs.writeFile(
+  'index.js',
+  [
+    '/**',
+    ' * List of ARIA attributes.',
+    ' *',
+    ' * @type {Array<string>}',
+    ' */',
+    'export const ariaAttributes = ' + JSON.stringify(list, null, 2),
+    ''
+  ].join('\n')
+)
